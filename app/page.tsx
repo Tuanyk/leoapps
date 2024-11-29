@@ -10,6 +10,7 @@ export default function Home() {
         <ToolCard href="/tools/spin-the-wheel" title="Spin the Wheel" description="Spin random choice" />
         <ToolCard href="/tools/bmi-calculator" title="BMI Calculator" description="BMI Calculator" />
         <ToolCard href="/tools/textcase" title="Textcase Converter" description="Textcase Converter" />
+        <ToolCard href="/tools/clock" title="Super clock" description="Clock 5 minutes interval" />
       </div>
     </div>
   )
