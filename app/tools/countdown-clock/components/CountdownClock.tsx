@@ -1,9 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
-interface CountdownClockProps {
-  targetDate: Date;
-}
-
+// Define an interface for the time left object
 interface TimeLeft {
   days?: number;
   hours?: number;
@@ -11,14 +8,16 @@ interface TimeLeft {
   seconds?: number;
 }
 
-export function CountdownClock({ targetDate }: CountdownClockProps) {
-  // Initialize timeLeft with the correct type
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+interface CountdownClockProps {
+  targetDate: Date
+}
 
-  // Calculate the time left
+export function CountdownClock({ targetDate }: CountdownClockProps) {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft())
+
   function calculateTimeLeft(): TimeLeft {
-    const difference = +targetDate - +new Date();
-    let timeLeft: TimeLeft = {};
+    const difference = +targetDate - +new Date()
+    let timeLeft: TimeLeft = {}
 
     if (difference > 0) {
       timeLeft = {
@@ -26,26 +25,26 @@ export function CountdownClock({ targetDate }: CountdownClockProps) {
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60)
-      };
+      }
     }
 
-    return timeLeft;
+    return timeLeft
   }
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
+      setTimeLeft(calculateTimeLeft())
+    }, 1000)
 
-    return () => clearTimeout(timer);
-  }, [targetDate]); // Add targetDate to dependency array to recalculate when it changes
+    return () => clearTimeout(timer)
+  })
 
-  // Map over the timeLeft object to create components
   const timerComponents = Object.keys(timeLeft).map(interval => {
-    // Check if timeLeft[interval] exists and is a valid number
-    const value = timeLeft[interval as keyof TimeLeft];
-    if (value === undefined || value === 0) {
-      return null;
+    // Type assertion to tell TypeScript that timeLeft has the correct type
+    const value = timeLeft[interval as keyof TimeLeft]
+    
+    if (!value) {
+      return null
     }
 
     return (
@@ -57,8 +56,8 @@ export function CountdownClock({ targetDate }: CountdownClockProps) {
           {interval}
         </div>
       </div>
-    );
-  });
+    )
+  })
 
   return (
     <div className="mt-8">
@@ -66,5 +65,5 @@ export function CountdownClock({ targetDate }: CountdownClockProps) {
         {timerComponents.length ? timerComponents : <span className="text-2xl text-white">Time&apos;s up!</span>}
       </div>
     </div>
-  );
+  )
 }
