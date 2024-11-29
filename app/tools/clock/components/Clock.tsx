@@ -15,7 +15,7 @@ export function Clock({ time }: ClockProps) {
   }, [time])
 
   return (
-    <div className="relative w-64 h-64 rounded-full border-4 border-white">
+    <div className="relative w-64 h-64 rounded-full border-4 border-white mx-auto">
       {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((angle) => (
         <div
           key={angle}
