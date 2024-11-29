@@ -1,15 +1,24 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 interface CountdownClockProps {
-  targetDate: Date
+  targetDate: Date;
+}
+
+interface TimeLeft {
+  days?: number;
+  hours?: number;
+  minutes?: number;
+  seconds?: number;
 }
 
 export function CountdownClock({ targetDate }: CountdownClockProps) {
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+  // Initialize timeLeft with the correct type
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
 
-  function calculateTimeLeft() {
-    const difference = +targetDate - +new Date()
-    let timeLeft = {}
+  // Calculate the time left
+  function calculateTimeLeft(): TimeLeft {
+    const difference = +targetDate - +new Date();
+    let timeLeft: TimeLeft = {};
 
     if (difference > 0) {
       timeLeft = {
@@ -17,36 +26,39 @@ export function CountdownClock({ targetDate }: CountdownClockProps) {
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60)
-      }
+      };
     }
 
-    return timeLeft
+    return timeLeft;
   }
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft())
-    }, 1000)
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
 
-    return () => clearTimeout(timer)
-  })
+    return () => clearTimeout(timer);
+  }, [targetDate]); // Add targetDate to dependency array to recalculate when it changes
 
+  // Map over the timeLeft object to create components
   const timerComponents = Object.keys(timeLeft).map(interval => {
-    if (!timeLeft[interval]) {
-      return null
+    // Check if timeLeft[interval] exists and is a valid number
+    const value = timeLeft[interval as keyof TimeLeft];
+    if (value === undefined || value === 0) {
+      return null;
     }
 
     return (
       <div key={interval} className="flex flex-col items-center">
         <div className="text-5xl font-bold text-white mb-2">
-          {timeLeft[interval]}
+          {value}
         </div>
         <div className="text-xl text-white opacity-80">
           {interval}
         </div>
       </div>
-    )
-  })
+    );
+  });
 
   return (
     <div className="mt-8">
@@ -54,6 +66,5 @@ export function CountdownClock({ targetDate }: CountdownClockProps) {
         {timerComponents.length ? timerComponents : <span className="text-2xl text-white">Time&apos;s up!</span>}
       </div>
     </div>
-  )
+  );
 }
-
