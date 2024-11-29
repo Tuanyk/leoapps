@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <div className="space-y-6">
-      <h1 className="text-4xl font-bold">Welcome to Multi-Tool Website</h1>
+      <h1 className="text-4xl font-bold">Welcome to Leonardo&apos;s Multi-Tool Website</h1>
       <p className="text-xl">Choose a tool to get started:</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <ToolCard href="/tools/slugify" title="Slufigy" description="Slugify String" />
