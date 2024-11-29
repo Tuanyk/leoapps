@@ -1,0 +1,86 @@
+.bmiCalculator {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+.bmiCalculator h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.bmiCalculator form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bmiCalculator label {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #555;
+  align-self: flex-start;
+}
+
+.bmiCalculator input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.bmiCalculator button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007BFF;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.bmiCalculator button:hover {
+  background-color: #0056b3;
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.normalWeightRange {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.canvasContainer {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.bmiChart {
+  width: 100%;
+  height: 200px;
+}
+
+.helpText {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: #666;
+  text-align: left;
+  width: 100%;
+}
+
