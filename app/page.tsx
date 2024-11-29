@@ -11,6 +11,7 @@ export default function Home() {
         <ToolCard href="/tools/bmi-calculator" title="BMI Calculator" description="BMI Calculator" />
         <ToolCard href="/tools/textcase" title="Textcase Converter" description="Textcase Converter" />
         <ToolCard href="/tools/clock" title="Super clock" description="Clock 5 minutes interval" />
+        <ToolCard href="/tools/countdown-clock" title="Countdown clock" description="Countdown clock when boring" />
       </div>
     </div>
   )
