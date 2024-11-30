@@ -73,7 +73,7 @@ export default function GPACalculator() {
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle>GPA Calculator</CardTitle>
-        <CardDescription>Enter your courses, grades, and credit hours to calculate your GPA. We've pre-filled some example courses for you.</CardDescription>
+        <CardDescription>Enter your courses, grades, and credit hours to calculate your GPA. We&apos;ve pre-filled some example courses for you.</CardDescription>
       </CardHeader>
       <CardContent>
         {courses.map((course, index) => (
