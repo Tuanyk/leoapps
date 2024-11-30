@@ -15,6 +15,7 @@ export default function Home() {
         <ToolCard href="/tools/compound-interest" title="Compound Interest Calculator" description="Calculate how your investments can grow with compound interest and regular contributions" />
         <ToolCard href="/tools/gpa-calculator" title="GPA Calculator" description="Calculate GPA" />
         <ToolCard href="/tools/gpa-planning-calculator" title="GPA Planning Calculator" description="Planning the desired GPA" />
+        <ToolCard href="/tools/random-number-generator" title="Random Number Generator" description="Random Number Generator" />
       </div>
     </div>
   )
