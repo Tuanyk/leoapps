@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
 import GPACalculator from './gpa-calculator'
+import type { Metadata } from 'next'
 import { BASE_URL } from '../../utils/config';
 
 export const metadata: Metadata = {
