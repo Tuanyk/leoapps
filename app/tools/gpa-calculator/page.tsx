@@ -1,11 +1,21 @@
+import type { Metadata } from 'next'
 import GPACalculator from './gpa-calculator'
+import { BASE_URL } from '../../utils/config';
+
+export const metadata: Metadata = {
+  title: 'GPA Calculator | GPA Tools',
+  description: 'Calculate your current GPA based on your courses and grades.',
+  alternates: {
+    canonical: `${BASE_URL}/tools/gpa-calculator`,
+  },
+}
 
 export default function GPACalculatorPage() {
   return (
-    <div className="container mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-6 text-center">GPA Calculator</h1>
+    <section>
+      <h2 className="text-2xl font-semibold mb-4">GPA Calculator</h2>
       <GPACalculator />
-    </div>
+    </section>
   )
 }
 

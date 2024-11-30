@@ -1,4 +1,16 @@
 import SlugifyForm from './SlugifyForm'
+import type { Metadata } from 'next'
+import { BASE_URL } from '../../utils/config';
+
+export const metadata: Metadata = {
+  title: 'Slugify String Tool | Text Utilities',
+  description: 'Convert any string into a URL-friendly slug with this easy-to-use slugify tool.',
+  alternates: {
+    canonical: `${BASE_URL}/tools/slugify`,
+  },
+}
+
+
 
 export default function SlugifyTool() {
   return (
