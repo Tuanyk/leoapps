@@ -14,6 +14,7 @@ export default function Home() {
         <ToolCard href="/tools/countdown-clock" title="Countdown clock" description="Countdown clock when boring" />
         <ToolCard href="/tools/compound-interest" title="Compound Interest Calculator" description="Calculate how your investments can grow with compound interest and regular contributions" />
         <ToolCard href="/tools/gpa-calculator" title="GPA Calculator" description="Calculate GPA" />
+        <ToolCard href="/tools/gpa-planning-calculator" title="GPA Planning Calculator" description="Planning the desired GPA" />
       </div>
     </div>
   )
