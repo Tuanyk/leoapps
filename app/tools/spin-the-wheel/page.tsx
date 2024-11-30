@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 import { generateContrastingColors, easeOut, fitText } from './utils'
+import { Modal } from './components/Modal'
 
 const WHEEL_SIZE = 700;
 const CENTER_X = WHEEL_SIZE / 2;
@@ -18,6 +19,7 @@ export default function SpinTheWheel() {
   const [spinDuration, setSpinDuration] = useState(5000);
   const [isSpinning, setIsSpinning] = useState(false);
   const [result, setResult] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const spinTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -154,6 +156,8 @@ export default function SpinTheWheel() {
 
       setResult(result);
       setIsSpinning(false);
+      setIsModalOpen(true);  // Open the modal
+
       
       // Play result sound if available
       if (resultSoundRef.current) {
@@ -268,15 +272,14 @@ export default function SpinTheWheel() {
                 ))}
               </div>
             </div>
-
-            {result && (
-              <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-                <h2 className="text-xl font-semibold">Result</h2>
-                <p className="text-4xl font-bold text-blue-600 mt-2">{result}</p>
-              </div>
-            )}
           </div>
         </div>
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <div className="text-center">
+            <h2 className="text-2xl font-semibold mb-4">Result</h2>
+            <p className="text-4xl font-bold text-blue-600">{result}</p>
+          </div>
+        </Modal>
       </div>
     </div>
   )
