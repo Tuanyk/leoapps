@@ -13,6 +13,7 @@ export default function Home() {
         <ToolCard href="/tools/clock" title="Super clock" description="Clock 5 minutes interval" />
         <ToolCard href="/tools/countdown-clock" title="Countdown clock" description="Countdown clock when boring" />
         <ToolCard href="/tools/compound-interest" title="Compound Interest Calculator" description="Calculate how your investments can grow with compound interest and regular contributions" />
+        <ToolCard href="/tools/gpa-calculator" title="GPA Calculator" description="Calculate GPA" />
       </div>
     </div>
   )
