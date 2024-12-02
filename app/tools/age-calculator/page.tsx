@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Age Calculator | Calculate Time Between Dates',
     description: 'Calculate the precise age or time interval between two dates in years, months, weeks, days, hours, minutes, and seconds.',
     url: `${BASE_URL}/tools/age-calculator`,
-    siteName: 'Your Site Name',
+    siteName: 'Leonardo Tools',
     locale: 'en_US',
     type: 'website',
   },

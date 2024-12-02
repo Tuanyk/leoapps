@@ -18,6 +18,7 @@ export default function Home() {
         <ToolCard href="/tools/random-number-generator" title="Random Number Generator" description="Random Number Generator" />
         <ToolCard href="/tools/p-value-calculator" title="P-value Calculator" description="P-value Calculator" />
         <ToolCard href="/tools/age-calculator" title="Age Calculator" description="Age Calculator" />
+        <ToolCard href="/tools/virtual-dice-roller" title="Virtual Dice Roller" description="Virtual Dice Roller" />
       </div>
     </div>
   )
