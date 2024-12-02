@@ -17,6 +17,7 @@ export default function Home() {
         <ToolCard href="/tools/gpa-planning-calculator" title="GPA Planning Calculator" description="Planning the desired GPA" />
         <ToolCard href="/tools/random-number-generator" title="Random Number Generator" description="Random Number Generator" />
         <ToolCard href="/tools/p-value-calculator" title="P-value Calculator" description="P-value Calculator" />
+        <ToolCard href="/tools/age-calculator" title="Age Calculator" description="Age Calculator" />
       </div>
     </div>
   )
