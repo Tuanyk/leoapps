@@ -18,7 +18,7 @@ type Currency =
     | 'VND' | 'ILS' | 'QAR' | 'KWD' | 'BHD'
     | 'CLP' | 'COP' | 'ARS' | 'PEN' | 'CRC'
     | 'HUF' | 'CZK' | 'RON' | 'HRK' | 'BGN';
-    
+
 interface SalaryState {
   amount: number
   unit: PayPeriod
@@ -211,22 +211,21 @@ export default function SalaryCalculator() {
             </div>
             <div>
               <Label htmlFor="currency">Currency</Label>
-              <Select
+                <Select
                 value={salary.currency}
                 onValueChange={(value: Currency) => setSalary({ ...salary, currency: value })}
-              >
+                >
                 <SelectTrigger id="currency">
-                  <SelectValue />
+                    <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="USD">USD ($)</SelectItem>
-                  <SelectItem value="EUR">EUR (€)</SelectItem>
-                  <SelectItem value="GBP">GBP (£)</SelectItem>
-                  <SelectItem value="JPY">JPY (¥)</SelectItem>
-                  <SelectItem value="CAD">CAD (C$)</SelectItem>
-                  <SelectItem value="AUD">AUD (A$)</SelectItem>
+                    {Object.keys(currencySymbols).map((currencyKey) => (
+                    <SelectItem key={currencyKey} value={currencyKey}>
+                        {currencyKey} ({currencySymbols[currencyKey as Currency]})
+                    </SelectItem>
+                    ))}
                 </SelectContent>
-              </Select>
+                </Select>
             </div>
             <div>
               <Label htmlFor="hoursPerWeek">Hours per week</Label>
