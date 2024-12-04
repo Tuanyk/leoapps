@@ -9,7 +9,6 @@ import { Button } from '@/components/ui/button'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 
 type PayPeriod = 'hour' | 'day' | 'week' | 'biweek' | 'semimonth' | 'month' | 'quarter' | 'year'
-type Currency = 'USD' | 'EUR' | 'GBP' | 'JPY' | 'CAD' | 'AUD'
 
 interface SalaryState {
   amount: number
@@ -21,14 +20,79 @@ interface SalaryState {
   vacationDaysPerYear: number
 }
 
+type Currency = 
+    | 'USD' | 'EUR' | 'GBP' | 'JPY' | 'CAD' | 'AUD'
+    | 'CHF' | 'CNY' | 'HKD' | 'SGD' | 'NZD' | 'MXN'
+    | 'BRL' | 'RUB' | 'INR' | 'KRW' | 'ZAR' | 'TRY'
+    | 'SAR' | 'AED' | 'NOK' | 'SEK' | 'DKK' | 'PLN'
+    | 'THB' | 'IDR' | 'MYR' | 'PHP' | 'TWD'
+    | 'VND' | 'ILS' | 'QAR' | 'KWD' | 'BHD'
+    | 'CLP' | 'COP' | 'ARS' | 'PEN' | 'CRC'
+    | 'HUF' | 'CZK' | 'RON' | 'HRK' | 'BGN';
+
 const currencySymbols: Record<Currency, string> = {
-  USD: '$',
-  EUR: '€',
-  GBP: '£',
-  JPY: '¥',
-  CAD: 'C$',
-  AUD: 'A$',
-}
+    // Major Currencies
+    USD: '$',   // United States Dollar
+    EUR: '€',   // Euro
+    GBP: '£',   // British Pound Sterling
+    JPY: '¥',   // Japanese Yen
+    CAD: 'C$',  // Canadian Dollar
+    AUD: 'A$',  // Australian Dollar
+    
+    // Additional Major Currencies
+    CHF: 'Fr.', // Swiss Franc
+    CNY: '¥',   // Chinese Yuan
+    HKD: 'HK$', // Hong Kong Dollar
+    SGD: 'S$',  // Singapore Dollar
+    NZD: 'NZ$', // New Zealand Dollar
+    MXN: '$',   // Mexican Peso
+    
+    // Emerging Market Currencies
+    BRL: 'R$',  // Brazilian Real
+    RUB: '₽',   // Russian Ruble
+    INR: '₹',   // Indian Rupee
+    KRW: '₩',   // South Korean Won
+    ZAR: 'R',   // South African Rand
+    TRY: '₺',   // Turkish Lira
+    
+    // Middle Eastern Currencies
+    SAR: '﷼',   // Saudi Riyal
+    AED: 'د.إ', // United Arab Emirates Dirham
+    
+    // Nordic and Other European Currencies
+    NOK: 'kr',  // Norwegian Krone
+    SEK: 'kr',  // Swedish Krona
+    DKK: 'kr',  // Danish Krone
+    PLN: 'zł',  // Polish Złoty
+    
+    // Asian Currencies
+    THB: '฿',   // Thai Baht
+    IDR: 'Rp',  // Indonesian Rupiah
+    MYR: 'RM',  // Malaysian Ringgit
+    PHP: '₱',   // Philippine Peso
+    TWD: 'NT$', // New Taiwan Dollar
+    VND: '₫',   // Vietnamese Dong
+    
+    // Other Currencies
+    ILS: '₪',   // Israeli New Shekel
+    QAR: 'QR',  // Qatari Riyal
+    KWD: 'KD',  // Kuwaiti Dinar
+    BHD: 'BD',  // Bahraini Dinar
+    
+    // South American Currencies
+    CLP: '$',   // Chilean Peso
+    COP: '$',   // Colombian Peso
+    ARS: '$',   // Argentine Peso
+    PEN: 'S/',  // Peruvian Sol
+    CRC: '₡',   // Costa Rican Colón
+    
+    // Additional European Currencies
+    HUF: 'Ft',  // Hungarian Forint
+    CZK: 'Kč',  // Czech Koruna
+    RON: 'lei', // Romanian Leu
+    HRK: 'kn',  // Croatian Kuna
+    BGN: 'лв'   // Bulgarian Lev
+};
 
 export default function SalaryCalculator() {
   const [salary, setSalary] = useState<SalaryState>({
