@@ -9,7 +9,16 @@ import { Button } from '@/components/ui/button'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 
 type PayPeriod = 'hour' | 'day' | 'week' | 'biweek' | 'semimonth' | 'month' | 'quarter' | 'year'
-
+type Currency = 
+    | 'USD' | 'EUR' | 'GBP' | 'JPY' | 'CAD' | 'AUD'
+    | 'CHF' | 'CNY' | 'HKD' | 'SGD' | 'NZD' | 'MXN'
+    | 'BRL' | 'RUB' | 'INR' | 'KRW' | 'ZAR' | 'TRY'
+    | 'SAR' | 'AED' | 'NOK' | 'SEK' | 'DKK' | 'PLN'
+    | 'THB' | 'IDR' | 'MYR' | 'PHP' | 'TWD'
+    | 'VND' | 'ILS' | 'QAR' | 'KWD' | 'BHD'
+    | 'CLP' | 'COP' | 'ARS' | 'PEN' | 'CRC'
+    | 'HUF' | 'CZK' | 'RON' | 'HRK' | 'BGN';
+    
 interface SalaryState {
   amount: number
   unit: PayPeriod
@@ -20,15 +29,7 @@ interface SalaryState {
   vacationDaysPerYear: number
 }
 
-type Currency = 
-    | 'USD' | 'EUR' | 'GBP' | 'JPY' | 'CAD' | 'AUD'
-    | 'CHF' | 'CNY' | 'HKD' | 'SGD' | 'NZD' | 'MXN'
-    | 'BRL' | 'RUB' | 'INR' | 'KRW' | 'ZAR' | 'TRY'
-    | 'SAR' | 'AED' | 'NOK' | 'SEK' | 'DKK' | 'PLN'
-    | 'THB' | 'IDR' | 'MYR' | 'PHP' | 'TWD'
-    | 'VND' | 'ILS' | 'QAR' | 'KWD' | 'BHD'
-    | 'CLP' | 'COP' | 'ARS' | 'PEN' | 'CRC'
-    | 'HUF' | 'CZK' | 'RON' | 'HRK' | 'BGN';
+
 
 const currencySymbols: Record<Currency, string> = {
     // Major Currencies
