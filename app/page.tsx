@@ -20,6 +20,7 @@ export default function Home() {
         <ToolCard href="/tools/age-calculator" title="Age Calculator" description="Age Calculator" />
         <ToolCard href="/tools/virtual-dice-roller" title="Virtual Dice Roller" description="Virtual Dice Roller" />
         <ToolCard href="/tools/salary-calculator" title="Salary Calculator" description="Calculate Your Pay" />
+        <ToolCard href="/tools/decision-maker" title="Decision Maker" description="Random Choice Tool" />
       </div>
     </div>
   )
