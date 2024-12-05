@@ -21,6 +21,7 @@ export default function Home() {
         <ToolCard href="/tools/virtual-dice-roller" title="Virtual Dice Roller" description="Virtual Dice Roller" />
         <ToolCard href="/tools/salary-calculator" title="Salary Calculator" description="Calculate Your Pay" />
         <ToolCard href="/tools/decision-maker" title="Decision Maker" description="Random Choice Tool" />
+        <ToolCard href="/tools/coin-toss" title="Coin Toss Tool" description="Quick and Fair Decision Making" />
       </div>
     </div>
   )
