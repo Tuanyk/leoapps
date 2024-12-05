@@ -216,7 +216,7 @@ export default function SpinTheWheel() {
                   <button className="p-2 hover:bg-gray-100 rounded">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
                   </button>
-                  <button className="p-2 hover:bg-gray-100 rounded">
+                  <button onClick={() => setSegments([])} className="p-2 hover:bg-gray-100 rounded">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
                   </button>
                   <button className="p-2 hover:bg-gray-100 rounded">
@@ -240,12 +240,6 @@ export default function SpinTheWheel() {
                   Eliminate last result after spin
                 </label>
               </div>
-              <button
-                onClick={() => setSegments([])}
-                className="mt-4 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
-              >
-                Reset All
-              </button>
               <div className="flex space-x-2 mb-4">
                 <input
                   type="text"
