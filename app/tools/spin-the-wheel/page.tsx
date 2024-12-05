@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
-import { generateContrastingColors, easeOut, fitText } from './utils'
+import { generateContrastingColors, easeInOutQuad, fitText } from './utils'
 import { Modal } from './components/Modal'
-
+type AnimationFrameHandle = number
 const WHEEL_SIZE = 700;
 const CENTER_X = WHEEL_SIZE / 2;
 const CENTER_Y = WHEEL_SIZE / 2;
@@ -20,9 +20,10 @@ export default function SpinTheWheel() {
   const [isSpinning, setIsSpinning] = useState(false);
   const [result, setResult] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [newSegment, setNewSegment] = useState('');
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const spinTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const spinTimeoutRef = useRef<AnimationFrameHandle | null>(null);
   const spinStartSoundRef = useRef<HTMLAudioElement | null>(null);
   const resultSoundRef = useRef<HTMLAudioElement | null>(null);
 
@@ -118,7 +119,6 @@ export default function SpinTheWheel() {
     setIsSpinning(true);
     setResult(null);
     
-    // Play start sound if available
     if (spinStartSoundRef.current) {
       spinStartSoundRef.current.play().catch(() => {
         // Silently handle audio play failure
@@ -136,10 +136,10 @@ export default function SpinTheWheel() {
         stopRotateWheel();
         return;
       }
-      const spinAngle = spinAngleStart * (1 - easeOut(spinTime, 0, 1, spinTimeTotal));
+      const spinAngle = spinAngleStart - easeInOutQuad(spinTime, 0, spinAngleStart, spinTimeTotal);
       startAngle += spinAngle * Math.PI / 180;
       drawRotatedWheel(startAngle);
-      spinTimeoutRef.current = setTimeout(rotateWheel, 30);
+      spinTimeoutRef.current = requestAnimationFrame(rotateWheel);
     }
 
     const stopRotateWheel = () => {
@@ -147,7 +147,9 @@ export default function SpinTheWheel() {
         spinStartSoundRef.current.pause();
         spinStartSoundRef.current.currentTime = 0;
       }
-      if (spinTimeoutRef.current) clearTimeout(spinTimeoutRef.current);
+      if (spinTimeoutRef.current !== null) {
+        cancelAnimationFrame(spinTimeoutRef.current);
+      }
 
       const degrees = startAngle * 180 / Math.PI + 90;
       const arcd = 360 / segments.length;
@@ -156,10 +158,8 @@ export default function SpinTheWheel() {
 
       setResult(result);
       setIsSpinning(false);
-      setIsModalOpen(true);  // Open the modal
+      setIsModalOpen(true);
 
-      
-      // Play result sound if available
       if (resultSoundRef.current) {
         resultSoundRef.current.play().catch(() => {
           // Silently handle audio play failure
@@ -187,10 +187,6 @@ export default function SpinTheWheel() {
     }
 
     rotateWheel();
-  }
-
-  const handleSegmentsChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setSegments(e.target.value.split('\n').filter(s => s.trim() !== ''));
   }
 
   return (
@@ -244,14 +240,52 @@ export default function SpinTheWheel() {
                   Eliminate last result after spin
                 </label>
               </div>
-
-              <textarea
-                value={segments.join('\n')}
-                onChange={handleSegmentsChange}
-                rows={10}
-                placeholder="Enter each segment on a new line."
-                className="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-              />
+              <button
+                onClick={() => setSegments([])}
+                className="mt-4 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+              >
+                Reset All
+              </button>
+              <div className="flex space-x-2 mb-4">
+                <input
+                  type="text"
+                  value={newSegment}
+                  onChange={(e) => setNewSegment(e.target.value)}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter' && newSegment.trim() !== '') {
+                      setSegments([...segments, newSegment.trim()]);
+                      setNewSegment('');
+                    }
+                  }}
+                  placeholder="Enter a new item"
+                  className="flex-grow p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                />
+                <button
+                  onClick={() => {
+                    if (newSegment.trim() !== '') {
+                      setSegments([...segments, newSegment.trim()]);
+                      setNewSegment('');
+                    }
+                  }}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                >
+                  Add
+                </button>
+              </div>
+              <div className="mt-4 space-y-2">
+                {segments.map((segment, index) => (
+                  <div key={index} className="flex justify-between items-center bg-gray-100 p-2 rounded-md">
+                    <span>{segment}</span>
+                    <button
+                      onClick={() => setSegments(segments.filter((_, i) => i !== index))}
+                      className="text-red-600 hover:text-red-800"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+              </div>
+              
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-sm space-y-4">
