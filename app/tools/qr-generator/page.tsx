@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useFormState } from 'react-dom'
+import { useActionState } from 'react'
 import { generateQRCode } from './actions'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -16,7 +16,7 @@ type QRType = 'text' | 'url' | 'email' | 'phone'
 export default function QRGenerator() {
   const [qrType, setQRType] = useState<QRType>('text')
   const [qrData, setQRData] = useState('')
-  const [state, formAction] = useFormState(generateQRCode, { success: false })
+  const [state, formAction] = useActionState(generateQRCode, { success: false })
 
   return (
     <div className="container mx-auto py-8">
@@ -98,8 +98,8 @@ export default function QRGenerator() {
                 <Image
                   src={state.dataURL}
                   alt="Generated QR Code"
-                  layout="fill"
-                  objectFit="contain"
+                  width={256}
+                  height={256}
                 />
               </div>
               <Button
