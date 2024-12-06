@@ -25,6 +25,8 @@ export default function Home() {
         <ToolCard href="/tools/qr-generator" title="QR Code Generator" description="Create QR Codes for Text, URLs, and More" />
         <ToolCard href="/tools/regex-tester" title="Online Regex Tester and Debugger" description="Support for JavaScript, PHP, and Python" />
         <ToolCard href="/tools/text-compare" title="Text Diff Tool" description="Compare Two Versions of Text" />
+        <ToolCard href="/tools/json-formatter" title="JSON Formatter" description="Online JSON Beautifier Tool" />
+        <ToolCard href="/tools/json-validator" title="JSON Validator" description="Online JSON Validator Tool" />
       </div>
     </div>
   )
