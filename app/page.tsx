@@ -23,6 +23,7 @@ export default function Home() {
         <ToolCard href="/tools/decision-maker" title="Decision Maker" description="Random Choice Tool" />
         <ToolCard href="/tools/coin-toss" title="Coin Toss Tool" description="Quick and Fair Decision Making" />
         <ToolCard href="/tools/qr-generator" title="QR Code Generator" description="Create QR Codes for Text, URLs, and More" />
+        <ToolCard href="/tools/regex-tester" title="Online Regex Tester and Debugger" description="Support for JavaScript, PHP, and Python" />
       </div>
     </div>
   )
