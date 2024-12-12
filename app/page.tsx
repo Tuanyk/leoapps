@@ -27,6 +27,8 @@ export default function Home() {
         <ToolCard href="/tools/text-compare" title="Text Diff Tool" description="Compare Two Versions of Text" />
         <ToolCard href="/tools/json-formatter" title="JSON Formatter" description="Online JSON Beautifier Tool" />
         <ToolCard href="/tools/json-validator" title="JSON Validator" description="Online JSON Validator Tool" />
+        <ToolCard href="/tools/length-converter" title="Length Converter" description="Online Unit Conversion Tool" />
+        <ToolCard href="/tools/data-size-converter" title="Data Size Converter" description="Online Storage Unit Conversion Tool" />
       </div>
     </div>
   )
