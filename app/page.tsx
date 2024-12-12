@@ -29,6 +29,9 @@ export default function Home() {
         <ToolCard href="/tools/json-validator" title="JSON Validator" description="Online JSON Validator Tool" />
         <ToolCard href="/tools/length-converter" title="Length Converter" description="Online Unit Conversion Tool" />
         <ToolCard href="/tools/data-size-converter" title="Data Size Converter" description="Online Storage Unit Conversion Tool" />
+        <ToolCard href="/tools/temperature-converter" title="Temperature Converter" description="Online Temperature Unit Conversion Tool" />
+        <ToolCard href="/tools/area-converter" title="Area Converter" description="Online Area Unit Conversion Tool" />
+        <ToolCard href="/tools/weight-converter" title="Weight Converter" description="Online Weight and Mass Unit Conversion Tool" />
       </div>
     </div>
   )
