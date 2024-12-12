@@ -32,6 +32,7 @@ export default function Home() {
         <ToolCard href="/tools/temperature-converter" title="Temperature Converter" description="Online Temperature Unit Conversion Tool" />
         <ToolCard href="/tools/area-converter" title="Area Converter" description="Online Area Unit Conversion Tool" />
         <ToolCard href="/tools/weight-converter" title="Weight Converter" description="Online Weight and Mass Unit Conversion Tool" />
+        <ToolCard href="/tools/volume-converter" title="Volume Converter" description="Online Volume Unit Conversion Tool" />
       </div>
     </div>
   )
