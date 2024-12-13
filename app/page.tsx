@@ -33,6 +33,7 @@ export default function Home() {
         <ToolCard href="/tools/area-converter" title="Area Converter" description="Online Area Unit Conversion Tool" />
         <ToolCard href="/tools/weight-converter" title="Weight Converter" description="Online Weight and Mass Unit Conversion Tool" />
         <ToolCard href="/tools/volume-converter" title="Volume Converter" description="Online Volume Unit Conversion Tool" />
+        <ToolCard href="/tools/luck-estimator" title="Luck Estimator" description="Test Your Gacha Luck" />
       </div>
     </div>
   )
