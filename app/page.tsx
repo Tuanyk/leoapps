@@ -36,6 +36,7 @@ export default function Home() {
         <ToolCard href="/tools/luck-estimator" title="Luck Estimator" description="Test Your Gacha Luck" />
         <ToolCard href="/tools/enhanced-luck-estimator" title="Enhanced Luck Estimator" description="Animated Luck Tester" />
         <ToolCard href="/tools/luck-gauge" title="Luck Gauge" description="Test Your Fortune" />
+        <ToolCard href="/tools/noughts-and-crosses" title="Noughts and Crosses" description="Tic-Tac-Toe Game" />
       </div>
     </div>
   )
