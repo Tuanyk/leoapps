@@ -34,6 +34,7 @@ export default function Home() {
         <ToolCard href="/tools/weight-converter" title="Weight Converter" description="Online Weight and Mass Unit Conversion Tool" />
         <ToolCard href="/tools/volume-converter" title="Volume Converter" description="Online Volume Unit Conversion Tool" />
         <ToolCard href="/tools/luck-estimator" title="Luck Estimator" description="Test Your Gacha Luck" />
+        <ToolCard href="/tools/enhanced-luck-estimator" title="Enhanced Luck Estimator" description="Animated Luck Tester" />
       </div>
     </div>
   )
