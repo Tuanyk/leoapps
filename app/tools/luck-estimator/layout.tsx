@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Luck Estimator - Test Your Gacha Luck',
     description: 'Estimate your luck with our gacha-style game. See how fortunate you are in this fun and interactive tool!',
     url: `${BASE_URL}/tools/luck-estimator`,
-    siteName: 'Your Site Name',
+    siteName: 'Luck Estimator by Leonardo',
     locale: 'en_US',
     type: 'website',
   },
