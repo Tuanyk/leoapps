@@ -1,21 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import LuckGauge from './luck-gauge'
 
 export default function LuckGaugePage() {
-  const [, setLuckValue] = useState(0.5)
-  const [isAnimating, setIsAnimating] = useState(false)
-
-  const testLuck = () => {
-    setIsAnimating(true)
-    setTimeout(() => {
-      setLuckValue(Math.random())
-      setIsAnimating(false)
-    }, 3000)
-  }
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -28,13 +16,6 @@ export default function LuckGaugePage() {
         </CardHeader>
         <CardContent className="flex flex-col items-center space-y-6">
           <LuckGauge />
-          <Button 
-            onClick={testLuck}
-            className="w-full"
-            disabled={isAnimating}
-          >
-            {isAnimating ? 'Testing Luck...' : 'Test Your Luck'}
-          </Button>
         </CardContent>
       </Card>
 
@@ -44,7 +25,7 @@ export default function LuckGaugePage() {
         </CardHeader>
         <CardContent>
           <ol className="list-decimal list-inside space-y-2">
-            <li>Click the &quot;Test Your Luck&quot; button to start.</li>
+            <li>Click the &quot;Test My Luck&quot; button to start.</li>
             <li>Watch as the needle spins rapidly for 3 seconds.</li>
             <li>The needle will then slow down and settle on your luck level.</li>
             <li>The gauge is divided into four sections from bottom to top:
