@@ -99,6 +99,38 @@ export default function Home() {
           </ul>
         </div>
       )}
+
+      <div className="mt-12 bg-gray-100 p-6 rounded-lg">
+        <h2 className="text-2xl font-bold mb-4">How to Use This Tool</h2>
+        <ol className="list-decimal list-inside space-y-4">
+          <li>
+            <strong>Paste your HTML content:</strong> Start by pasting your HTML content into the &quot;Input HTML&quot; textarea on the left.
+          </li>
+          <li>
+            <strong>Add anchor texts and links:</strong> Use the &quot;Add Links&quot; section below the textareas to input your desired anchor texts and their corresponding links. Click the &quot;Add&quot; button after entering each pair.
+          </li>
+          <li>
+            <strong>Insert links:</strong> Once you&apos;ve added all your anchor texts and links, click the &quot;Insert Links&quot; button to process your content.
+          </li>
+          <li>
+            <strong>Review the output:</strong> The processed HTML will appear in the &quot;Output HTML&quot; textarea on the right. You can copy this content using the &quot;Copy to Clipboard&quot; button below it.
+          </li>
+          <li>
+            <strong>Check inserted links:</strong> The &quot;Inserted Links&quot; section will show you which links were successfully inserted into your content.
+          </li>
+          <li>
+            <strong>Handle not found anchor texts:</strong> If any anchor texts weren&apos;t found in your content, they&apos;ll appear in the &quot;Not Found Anchor Texts&quot; section. Each item will have a &quot;Xem thêm&quot; link that you can copy and manually insert into your content if needed.
+          </li>
+        </ol>
+        <div className="mt-4">
+          <p className="font-semibold">Note:</p>
+          <ul className="list-disc list-inside mt-2 space-y-2">
+            <li>The tool performs case-insensitive matching for anchor texts.</li>
+            <li>If multiple instances of an anchor text are found, the tool will randomly select one to insert the link.</li>
+            <li>Each anchor text will only have a link inserted once, even if it appears multiple times in the content.</li>
+          </ul>
+        </div>
+      </div>
     </div>
   )
 }
