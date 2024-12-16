@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Head from 'next/head'
 import LinkInserter from './linkInserter'
 import { Button } from '@/components/ui/button'
 import { Copy } from 'lucide-react'
@@ -31,11 +30,6 @@ export default function Home() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Head>
-        <title>Link Inserter Tool</title>
-        <meta name="description" content="Insert links into your HTML content easily with our Link Inserter Tool." />
-        <link rel="canonical" href="/tools/link-inserter" />
-      </Head>
       <h1 className="text-3xl font-bold mb-6">Link Inserter Tool</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>

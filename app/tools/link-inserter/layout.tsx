@@ -1,29 +1,24 @@
 import type { Metadata } from 'next'
 import { BASE_URL } from '../../utils/config';
 
-
 export const metadata: Metadata = {
-  title: 'Luck Estimator - Test Your Gacha Luck',
-  description: 'Estimate your luck with our gacha-style game. See how fortunate you are in this fun and interactive tool!',
+  title: 'Link Inserter Tool',
+  description: 'Insert links into your HTML content easily with our Link Inserter Tool.',
   openGraph: {
-    title: 'Luck Estimator - Test Your Gacha Luck',
-    description: 'Estimate your luck with our gacha-style game. See how fortunate you are in this fun and interactive tool!',
-    url: `${BASE_URL}/tools/luck-estimator`,
-    siteName: 'Luck Estimator by Leonardo',
+    title: 'Link Inserter Tool',
+    description: 'Insert links into your HTML content easily with our Link Inserter Tool.',
+    url: `${BASE_URL}tools/link-inserter`,
+    siteName: 'Leonardo Tool',
     locale: 'en_US',
     type: 'website',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Luck Estimator - Test Your Gacha Luck',
-    description: 'Estimate your luck with our gacha-style game. See how fortunate you are in this fun and interactive tool!',
-  },
   alternates: {
-    canonical: `${BASE_URL}/tools/luck-estimator`,
+    canonical: `${BASE_URL}/tools/link-inserter`,
   }
 }
 
-export default function LuckEstimatorLayout({
+
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode

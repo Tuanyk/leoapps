@@ -7,6 +7,7 @@ export default function Home() {
       <p className="text-xl">Choose a tool to get started:</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <ToolCard href="/tools/slugify" title="Slufigy" description="Slugify String" />
+        <ToolCard href="/tools/link-inserter" title="Link Inserter Tool" description="Insert links into your HTML content" />
         <ToolCard href="/tools/spin-the-wheel" title="Spin the Wheel" description="Spin random choice" />
         <ToolCard href="/tools/bmi-calculator" title="BMI Calculator" description="BMI Calculator" />
         <ToolCard href="/tools/textcase" title="Textcase Converter" description="Textcase Converter" />
