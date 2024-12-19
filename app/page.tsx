@@ -38,6 +38,7 @@ export default function Home() {
         <ToolCard href="/tools/enhanced-luck-estimator" title="Enhanced Luck Estimator" description="Animated Luck Tester" />
         <ToolCard href="/tools/luck-gauge" title="Luck Gauge" description="Test Your Fortune" />
         <ToolCard href="/tools/noughts-and-crosses" title="Noughts and Crosses" description="Tic-Tac-Toe Game" />
+        <ToolCard href="/tools/date-difference-calculator" title="Date Difference Calculator" description="Calculate the exact difference between any two dates" />
       </div>
     </div>
   )
