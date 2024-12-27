@@ -3,19 +3,23 @@
 import { useState } from 'react'
 import { useActionState } from 'react'
 import { generateQRCode } from './actions'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import Image from 'next/image'
+import type { VCardData } from './vcard'
+import { VCardForm } from './vcard-form'
+import { formatVCard } from './vcard'
 
-type QRType = 'text' | 'url' | 'email' | 'phone'
+type QRType = 'text' | 'url' | 'email' | 'phone' | 'vcard'
 
 export default function QRGenerator() {
   const [qrType, setQRType] = useState<QRType>('text')
   const [qrData, setQRData] = useState('')
+  const [vcardData, setVCardData] = useState<Partial<VCardData>>({})
   const [state, formAction] = useActionState(generateQRCode, { success: false })
 
   return (
@@ -26,7 +30,24 @@ export default function QRGenerator() {
           <CardDescription>Generate QR codes for text, URLs, and more</CardDescription>
         </CardHeader>
         <CardContent>
-          <form action={formAction} className="space-y-4">
+          <form
+            action={formAction}
+            className="space-y-4"
+            onSubmit={(e) => {
+              if (qrType === 'vcard') {
+                e.preventDefault()
+                const vcard = formatVCard(vcardData)
+                if (vcard === 'BEGIN:VCARD\nVERSION:3.0\nEND:VCARD') {
+                  // All fields are empty
+                  alert('Please fill in at least one field for the vCard.')
+                  return
+                }
+                const formData = new FormData()
+                formData.set('qrData', vcard)
+                formAction(formData)
+              }
+            }}
+          >
             <RadioGroup defaultValue={qrType} onValueChange={(value: QRType) => setQRType(value)} className="flex space-x-4">
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="text" id="text" />
@@ -43,6 +64,10 @@ export default function QRGenerator() {
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="phone" id="phone" />
                 <Label htmlFor="phone">Phone</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="vcard" id="vcard" />
+                <Label htmlFor="vcard">vCard</Label>
               </div>
             </RadioGroup>
 
@@ -86,7 +111,17 @@ export default function QRGenerator() {
               />
             )}
 
-            <Button type="submit" disabled={!qrData}>
+            {qrType === 'vcard' && (
+              <VCardForm
+                data={vcardData}
+                onChange={setVCardData}
+              />
+            )}
+
+            <Button
+              type="submit"
+              disabled={qrType === 'vcard' ? Object.values(vcardData).every(v => !v) : !qrData}
+            >
               Generate QR Code
             </Button>
           </form>
